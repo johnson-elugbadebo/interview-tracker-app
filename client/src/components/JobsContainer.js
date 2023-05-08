@@ -4,7 +4,7 @@ import Loading from './Loading';
 import Job from './Job';
 import Alert from './Alert';
 import Wrapper from '../assets/wrappers/JobsContainer';
-import PageBtnContainer from './PageBtnContainer';
+import PageBtnContainerNew from './PageBtnContainerNew';
 
 function JobsContainer() {
 	const {
@@ -53,7 +53,7 @@ function JobsContainer() {
 				})}
 			</div>
 			{/* Pagination Buttons */}
-			{numOfPages > 1 && <PageBtnContainer />}
+			{numOfPages > 1 && <PageBtnContainerNew />}
 		</Wrapper>
 	);
 }

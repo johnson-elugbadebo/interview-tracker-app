@@ -107,7 +107,7 @@ function Register() {
 					onClick={() => {
 						loginUser({ email: 'testuser@gmail.com', password: 'secret' });
 					}}>
-					Demo Application
+					Test Demo Application
 				</button>
 				<p>
 					{values.isMember ? 'Not a Member yet?' : 'Already a member?'}

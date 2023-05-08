@@ -1,2 +1,5 @@
 /node_modules
 .env
+README.md
+mock-data.json
+populate.js

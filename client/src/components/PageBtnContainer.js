@@ -30,7 +30,6 @@ function PageBtnContainer() {
 	return (
 		<Wrapper>
 			<button className='prev-btn' onClick={prevPage}>
-				<HiChevronDoubleLeft />
 				pre
 			</button>
 
@@ -52,7 +51,6 @@ function PageBtnContainer() {
 
 			<button className='next-btn' onClick={nextPage}>
 				next
-				<HiChevronDoubleRight />
 			</button>
 		</Wrapper>
 	);

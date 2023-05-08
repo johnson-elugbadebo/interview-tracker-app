@@ -51,7 +51,7 @@ if (process.env.NODE_ENV !== 'production') {
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Invoke static assets, only when ready to Deploy Application
-app.use(express.static(path.resolve(__dirname, './client/build')));
+// app.use(express.static(path.resolve(__dirname, './client/build')));
 
 // Establish rate limiter middleware to all requests
 app.set('trust proxy', 1);
@@ -89,9 +89,9 @@ app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/jobs', jobsRouter);
 
 // Only when ready to deploy, Establish Get Route to point to Index.html (after the auth and jobs routes)
-app.get('*', function (req, res) {
-	res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
-});
+// app.get('*', function (req, res) {
+// 	res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+// });
 
 // Invoke Not Found and Error Handler Middleware
 app.use(notFoundMiddleware);

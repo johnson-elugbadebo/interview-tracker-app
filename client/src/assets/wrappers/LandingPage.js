@@ -13,7 +13,7 @@ const Wrapper = styled.main`
 		min-height: calc(100vh - var(--nav-height));
 		display: grid;
 		align-items: center;
-		margin-top: -3rem;
+		margin-top: -1rem;
 	}
 	h1 {
 		font-weight: 700;
@@ -24,6 +24,11 @@ const Wrapper = styled.main`
 	p {
 		color: var(--grey-900);
 	}
+
+	.sub-item {
+		margin-left: 1rem;
+	}
+
 	.main-img {
 		display: none;
 	}

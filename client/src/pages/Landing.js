@@ -22,23 +22,29 @@ function Landing() {
 							Interview <span>Tracker</span> Application
 						</h1>
 						<p>
-							<strong>BUILT BY:</strong> JOHNSON ELUGBADEBO
-						</p>
-						<p>
-							<strong>DATE:</strong> SPRING 2023
-						</p>
-						<p>
-							<strong>LOCATION:</strong> CAMBRIDGE, MA
-						</p>
-						<p>
-							<strong>TECHNOLOGY STACK:</strong> MERN
 							<ul>
-								<li>Database: MongoDB</li>
-								<li>Backend framework: Express.js</li>
-								<li>Frontend framework: React.js</li>
-								<li>Server language: Node.js</li>
+								<li>
+									<strong>BUILT BY:</strong> JOHNSON ELUGBADEBO
+								</li>
+								<li>
+									<strong>DATE:</strong> SPRING 2023
+								</li>
+								<li>
+									<strong>LOCATION:</strong> CAMBRIDGE, MA
+								</li>
+								<li>
+									<strong>TECHNOLOGY STACK:</strong> MERN
+									<ul>
+										<li className='sub-item'>Database: MongoDB</li>
+										<li className='sub-item'>Backend framework: Express.js</li>
+										<li className='sub-item'>Frontend framework: React.js</li>
+										<li className='sub-item'>Server language: Node.js</li>
+									</ul>
+								</li>
 							</ul>
 						</p>
+
+						<p></p>
 
 						<Link to='/register' className='btn btn-hero'>
 							Register / Login
