@@ -56,7 +56,7 @@ const Wrapper = styled.section`
 		color: var(--white);
 	}
 
-	@media screen and (max-width: 567px) {
+	@media screen and (max-width: 570px) {
 		.pageBtn {
 			background: transparent;
 			border-color: transparent;
