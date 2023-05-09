@@ -46,7 +46,7 @@ function PageBtnContainerNew({ siblingCount = 1 }) {
 					{paginationRange.map((pageNumber) => {
 						// If the pageItem is a DOT, render the DOTS unicode character
 						if (pageNumber === DOTS) {
-							return <>&#8230;</>;
+							return <button className='dots'>&#8230;</button>;
 						}
 						// Render our Page Pills
 						return (
