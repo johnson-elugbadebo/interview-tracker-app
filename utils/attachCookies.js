@@ -4,13 +4,14 @@
 // Notes: Cookies won't work with frontend (client) and backend (server) are setup on different servers.
 
 const attachCookies = function ({ res, token }) {
-	// Setup Cookie
-	const oneDay = 1000 * 60 * 60 * 24;
-	res.cookie('token', token, {
-		httpOnly: true,
-		expires: new Date(Date.now() + oneDay),
-		secure: (process.env.NODE_ENV = 'production'),
-	});
+  // Setup Cookie
+  const oneDay = 1000 * 60 * 60 * 24;
+  res.cookie('token', token, {
+    httpOnly: true, // accessible only by web server
+    sameSite: 'None', // cross-site cookie
+    secure: process.env.NODE_ENV === 'production', // https
+    maxAge: 1 * 24 * 60 * 60 * 1000, // cookie expiry: matches refreshToken in 1 day
+  });
 };
 
 export default attachCookies;

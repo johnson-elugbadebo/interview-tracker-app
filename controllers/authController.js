@@ -105,7 +105,6 @@ const updateUser = async function (req, res) {
 	}
 
 	// when you use findOne method to find user, password does not come back because of 'select: false' option on User model
-
 	const user = await User.findOne({ _id: req.user.userID });
 
 	user.email = email;
@@ -113,7 +112,8 @@ const updateUser = async function (req, res) {
 	user.lastName = lastName;
 	user.location = location;
 
-	// user.save() vs User.findOneAndUpdate - User.findOneAndUpdate will not trigger "save" pre hook
+	// user.save() vs user.findOneAndUpdate - User.findOneAndUpdate will not trigger "save" pre hook
+	// Mongoose only updates the version key when you use save(). If you use update(), findOneAndUpdate(), etc. Mongoose will not update the version key.
 	await user.save();
 
 	// there are various setups

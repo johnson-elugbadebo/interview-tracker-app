@@ -44,25 +44,25 @@ import cookieParser from 'cookie-parser';
 
 // Invoke morgan logger middleware only in dev environment
 if (process.env.NODE_ENV !== 'production') {
-	app.use(morgan('dev'));
+  app.use(morgan('dev'));
 }
 
 // Workaround to get dirname
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Invoke static assets, only when ready to Deploy Application
-app.use(express.static(path.resolve(__dirname, './client/build')));
+// app.use(express.static(path.resolve(__dirname, './client/build')));
 
 // Establish rate limiter middleware to all requests
 app.set('trust proxy', 1);
 app.use(
-	rateLimit({
-		windowMs: 15 * 60 * 1000, // 15 minutes
-		max: 50, // Limit each IP to 50 requests per `window` (here, per 15 minutes)
-		standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-		legacyHeaders: false, // Disable the `X-RateLimit-*` headers
-		message: 'Too many requests from this IP, please try again later.',
-	})
+  rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 50, // Limit each IP to 50 requests per `window` (here, per 15 minutes)
+    standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+    legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+    message: 'Too many requests from this IP, please try again later.',
+  })
 );
 
 // Establish Middleware (json), Makes json data available to us in controllers
@@ -89,9 +89,9 @@ app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/jobs', jobsRouter);
 
 // Only when ready to deploy, Establish Get Route to point to Index.html (after the auth and jobs routes)
-app.get('*', function (req, res) {
-	res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
-});
+// app.get('*', function (req, res) {
+// 	res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+// });
 
 // Invoke Not Found and Error Handler Middleware
 app.use(notFoundMiddleware);
@@ -101,14 +101,14 @@ const port = process.env.PORT || 5000;
 
 // Only start server if connection to database is successful, must be async
 const startServer = async function () {
-	try {
-		await connectDB(process.env.MONGO_URL);
-		app.listen(port, () => {
-			console.log(`Server is listening on port ${port}...`);
-		});
-	} catch (error) {
-		console.log(error);
-	}
+  try {
+    await connectDB(process.env.MONGO_URL);
+    app.listen(port, () => {
+      console.log(`Server is listening on port ${port}...`);
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 startServer();
